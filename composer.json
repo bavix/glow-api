@@ -1,0 +1,22 @@
+{
+  "name": "bavix/glow-api",
+  "description": "A tool for fast uploading to Glow CDN",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Babichev Maxim",
+      "email": "info@babichev.net"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Bavix\\GlowApi\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.3",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^6.5"
+  }
+}
+);
