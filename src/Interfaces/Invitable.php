@@ -6,8 +6,8 @@ interface Invitable
 {
     /**
      * @param string $bucket
-     * @param int $fileId
+     * @param string $route
      * @return array
      */
-    public function inviteFile(string $bucket, int $fileId): array;
+    public function inviteFile(string $bucket, string $route): array;
 }

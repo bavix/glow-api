@@ -24,25 +24,25 @@ interface Fileable
 
     /**
      * @param string $bucket
-     * @param int $fileId
+     * @param string $route
      * @return array
      */
-    public function showFile(string $bucket, int $fileId): array;
+    public function showFile(string $bucket, string $route): array;
 
     /**
      * @param string $bucket
-     * @param int $fileId
+     * @param string $route
      * @param bool $visibility
      * @return array
      */
-    public function visibilityFile(string $bucket, int $fileId, bool $visibility): array;
+    public function visibilityFile(string $bucket, string $route, bool $visibility): array;
 
     /**
      * @param string $bucket
-     * @param int $fileId
+     * @param string $route
      * @return bool
      */
-    public function dropFile(string $bucket, int $fileId): bool;
+    public function dropFile(string $bucket, string $route): bool;
 
     /**
      * @param string $bucket

@@ -220,39 +220,39 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
 
     /**
      * @param string $bucket
-     * @param int $fileId
+     * @param string $route
      * @return array
      */
-    public function showFile(string $bucket, int $fileId): array
+    public function showFile(string $bucket, string $route): array
     {
         return $this->client->safeGet(
-            \sprintf('/api/bucket/%s/file/%d', $bucket, $fileId)
+            \sprintf('/api/bucket/%s/file/%s', $bucket, $route)
         );
     }
 
     /**
      * @param string $bucket
-     * @param int $fileId
+     * @param string $route
      * @param bool $visibility
      * @return array
      */
-    public function visibilityFile(string $bucket, int $fileId, bool $visibility): array
+    public function visibilityFile(string $bucket, string $route, bool $visibility): array
     {
         return $this->client->safePatch(
-            \sprintf('/api/bucket/%s/file/%d', $bucket, $fileId),
+            \sprintf('/api/bucket/%s/file/%s', $bucket, $route),
             ['visibility' => $visibility],
         );
     }
 
     /**
      * @param string $bucket
-     * @param int $fileId
+     * @param string $route
      * @return bool
      */
-    public function dropFile(string $bucket, int $fileId): bool
+    public function dropFile(string $bucket, string $route): bool
     {
         return $this->client->safeDelete(
-            \sprintf('/api/bucket/%s/file/%d', $bucket, $fileId),
+            \sprintf('/api/bucket/%s/file/%s', $bucket, $route),
         );
     }
 
@@ -284,13 +284,13 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
 
     /**
      * @param string $bucket
-     * @param int $fileId
+     * @param string $route
      * @return array
      */
-    public function inviteFile(string $bucket, int $fileId): array
+    public function inviteFile(string $bucket, string $route): array
     {
         return $this->client->safePost(
-            \sprintf('/api/bucket/%s/file/%d/invite', $bucket, $fileId),
+            \sprintf('/api/bucket/%s/invite/%d', $bucket, $route),
         );
     }
 
