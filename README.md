@@ -25,7 +25,7 @@ $api->createView('users', 'avatar', [
 
 $files = (new \Bavix\GlowApi\File\Upload())
     ->addFile('id_1.svg', 'https://stat.babichev.net/svg/logo.svg')
-    ->addFile('id_1.png', 'https://stat.babichev.net/svg/logo.png')
+    ->addFile('id_1.png', 'https://stat.babichev.net/png/logo.png')
 ;
 
 $response = $api->writeFile('users', $files); // upload to cdn
