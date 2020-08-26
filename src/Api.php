@@ -43,7 +43,7 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
         return $this->client->safePost(
             '/api/auth/token',
             \array_merge($body, $options),
-        );
+        )['data'] ?? [];
     }
 
     /**
@@ -63,7 +63,7 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
         return $this->client->safePost(
             '/api/bucket',
             \compact('name'),
-        );
+        )['data'] ?? [];
     }
 
     /**
@@ -72,7 +72,7 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
      */
     public function showBucket(string $name): array
     {
-        return $this->client->safeGet(\sprintf('/api/bucket/%s', $name));
+        return $this->client->safeGet(\sprintf('/api/bucket/%s', $name))['data'] ?? [];
     }
 
     /**
@@ -129,7 +129,7 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
         return $this->client->safePost(
             \sprintf('/api/bucket/%s/view', $bucket),
             $props,
-        );
+        )['data'] ?? [];
     }
 
     /**
@@ -141,7 +141,7 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
     {
         return $this->client->safeGet(
             \sprintf('/api/bucket/%s/view/%s', $bucket, $view),
-        );
+        )['data'] ?? [];
     }
 
     /**
@@ -227,7 +227,7 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
     {
         return $this->client->safeGet(
             \sprintf('/api/bucket/%s/file/%s', $bucket, $route)
-        );
+        )['data'] ?? [];
     }
 
     /**
@@ -241,7 +241,7 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
         return $this->client->safePatch(
             \sprintf('/api/bucket/%s/file/%s', $bucket, $route),
             ['visibility' => $visibility],
-        );
+        )['data'] ?? [];
     }
 
     /**
@@ -291,7 +291,7 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
     {
         return $this->client->safePost(
             \sprintf('/api/bucket/%s/invite/%d', $bucket, $route),
-        );
+        )['data'] ?? [];
     }
 
 }
