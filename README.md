@@ -24,15 +24,23 @@ $api->createView('users', 'avatar', [
 ]);
 
 $files = (new \Bavix\GlowApi\File\Upload())
-    ->addFile('id_1.jpg', 'https://stat.babichev.net/svg/logo.svg')
+    ->addFile('id_1.svg', 'https://stat.babichev.net/svg/logo.svg')
+    ->addFile('id_1.png', 'https://stat.babichev.net/svg/logo.png')
 ;
 
 $response = $api->writeFile('users', $files); // upload to cdn
 
 // Glow CDN will automatically generate views and you can get them from the links:
+//
+// SVG:
 // original: http://glow.local/capsule/users/id_1.svg
-// thumbnail: http://glow.local/capsule/users:avatar/id_1.svg
-// thumbnail+webp: http://glow.local/capsule/users:avatar/id_1.svg.webp
+// thumbnail: http://glow.local/capsule/users:avatar/id_1.svg.jpg
+// thumbnail+webp: http://glow.local/capsule/users:avatar/id_1.svg.jpg.webp
+//
+// PNG:
+// original: http://glow.local/capsule/users/id_1.png
+// thumbnail: http://glow.local/capsule/users:avatar/id_1.png
+// thumbnail+webp: http://glow.local/capsule/users:avatar/id_1.png.webp
 ```
 
 ---

@@ -13,7 +13,7 @@ $client->showOrCreateBucket('logos');
 
 try {
     $files = (new \Bavix\GlowApi\File\Upload())
-        ->addFile('logotype.svg', $svg)
+        ->addFile(bin2hex(random_bytes(8)) . '.svg', $svg)
     ;
 
     $uploaded = $client->rewriteFile('logos', $files);
