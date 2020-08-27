@@ -7,9 +7,9 @@ interface Invitable
     /**
      * @param string $bucket
      * @param string $route
-     * @param int $timestamp
+     * @param \DateTime $dateTime
      * @param array $options
      * @return array
      */
-    public function inviteFile(string $bucket, string $route, int $timestamp, array $options): array;
+    public function inviteFile(string $bucket, string $route, \DateTime $dateTime, array $options): array;
 }

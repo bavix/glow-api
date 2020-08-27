@@ -285,16 +285,16 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
     /**
      * @param string $bucket
      * @param string $route
-     * @param int $timestamp
+     * @param \DateTime $dateTime
      * @param array $options
      * @return array
      */
-    public function inviteFile(string $bucket, string $route, int $timestamp, array $options): array
+    public function inviteFile(string $bucket, string $route, \DateTime $dateTime, array $options): array
     {
         return $this->client->safePost(
-            \sprintf('/api/bucket/%s/invite/%d', $bucket, $route),
-            \array_merge($options, ['expire' => $timestamp]),
-        )['data'] ?? [];
+                \sprintf('/api/bucket/%s/invite/%d', $bucket, $route),
+                \array_merge($options, ['expires_at' => $dateTime->format('Y-m-d H:i:s')]),
+            )['data'] ?? [];
     }
 
 }
