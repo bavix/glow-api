@@ -74,7 +74,7 @@ class DataSet
             ],
             [
                 'name' => 'visibility[]',
-                'contents' => $this->visibility,
+                'contents' => (int)$this->visibility,
             ],
         ];
     }
