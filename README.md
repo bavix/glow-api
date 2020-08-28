@@ -13,7 +13,7 @@ A set of functions for working with Glow CDN:
 $client = new \Bavix\GlowApi\HttpClient(BASE_URL, APP_TOKEN);
 $api = new \Bavix\GlowApi\Api($client);
 $api->createBucket('users');
-$api->createView('users', 'avatar', [
+$api->createView('users', [
     'name' => 'avatar',
     'type' => 'contain',
     'width' => 160,
