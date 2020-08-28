@@ -297,4 +297,18 @@ class Api implements Authable, Bucketable, Fileable, Invitable, Viewable
         )['data'] ?? [];
     }
 
+    /**
+     * @param string $bucket
+     * @param string $directory
+     * @param bool $recursive
+     * @return array
+     */
+    public function listContents(string $bucket, string $directory = '', bool $recursive = false): array
+    {
+        return $this->client->safeGet(
+                \sprintf('/api/bucket/%s/listContents', $bucket),
+                \compact('directory', 'recursive'),
+            )['data'] ?? [];
+    }
+
 }
