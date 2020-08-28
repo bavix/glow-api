@@ -41,7 +41,7 @@ class HttpClient
      */
     public function get(string $urn, array $query = []): ResponseInterface
     {
-        return $this->getGuzzle()->get($urn, $query);
+        return $this->getGuzzle()->get($urn, \compact('query'));
     }
 
     /**
